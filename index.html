@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body{
+            margin:0px;
+
+        }
+        .slide-container{
+            position:relative;
+            width:100%;
+            height: 100%;
+        
+        }
+        .slide{
+            width: 1520PX;
+             height: 1000px;  
+             display:none;
+        }
+        .slide img{
+            width:100%;
+            height: 50%;
+            
+            
+        }
+        
+        .arrow{
+        cursor:pointer;
+        position:absolute;
+        top:45%;
+        color:black;
+        background-color:white;
+        padding:8px 19px;
+        border-radius:50%;
+        font-size:25px;
+        font-weight:bold;
+        }
+        .next{
+            right:10px;
+        }
+        .prev{
+            left:10px;
+        }
+        .caption{
+            color:white;
+            font-size:30px;
+            font-weight:bold;
+            position:absolute;
+            bottom: 214px;
+            width:100%;
+            text-align:center;
+            background-color:rgba(0,0,0,0.5);
+            padding:15px  0px;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="slide-conatiner">
+
+    <div class="slide">
+    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="" id="img">
+    <div class="caption">Caption Text 1</div>
+    </div>
+
+
+    <div class="slide">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY84Jzh6miel1s-MPmyyjW-H3YRs7htGv2PUQzJVsobYbdvcFY-l4ZqIFFgZmh2_mYl-E&usqp=CAU " alt="">
+        <div class="caption">Caption Text 2</div>
+        </div>
+
+
+
+        <div class="slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxo2NFiYcR35GzCk5T3nxA7rGlSsXvIfJwg&s" alt="">
+            <div class="caption">Caption Text 3</div>
+            </div>
+
+
+
+            <div class="slide">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJrT7MI9fsrc6mWRBJBwhrf4vwTL7S5B8CzQ&s" alt="">
+                <div class="caption">Caption Text 4</div>
+                </div>
+
+
+                <span class="arrow prev" onclick="controller(-1)">&#10094</span>
+                <span class="arrow next" onclick="controller(1)">&#10095</span>
+
+
+
+
+
+                <script>
+
+                    let flag=0;
+                    function controller(x){
+                        flag=flag+x;
+                        slideshow(flag);
+
+                    }
+
+                    slideshow(flag);
+                    function slideshow(num){
+                        let slides=document.getElementsByClassName("slide");
+                        if(num==slides.length){
+                            flag=0;
+                            num=0;
+                        }
+                        if(num<0){
+                            flag=slides.length-1;
+                            num=slides.length-1;
+                        }
+
+                        for(let y of slides){
+                            y.style.display="none";
+                        }
+            
+                        slides[num].style.display="block";
+                        console.log(num);
+                        
+                    }
+                
+                </script>
+    
+   
+</div>
+
+    
+</body>
+</html>
